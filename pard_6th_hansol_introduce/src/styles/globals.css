@@ -1,0 +1,170 @@
+body {
+  background-color: #c8d7ff;
+}
+/* about.tsx */
+.wrapper {
+  display: flex;
+  margin-top: 50px;
+}
+
+.hansol {
+  width: 300px;
+  height: 300px;
+  border-radius: 40%;
+  cursor: pointer;
+}
+.hansol:hover {
+  width: 400px;
+  height: 600px;
+}
+
+.left_element {
+  width: 33.33%;
+  margin-inline: 20px;
+  font-size: 30px;
+}
+.list {
+  list-style: none;
+  font-size: 40px;
+  background-color: #fff;
+}
+.short {
+  margin-bottom: 15px;
+}
+
+.middle_element {
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+  margin-inline: 20px;
+}
+
+.right_element {
+  margin-top: 30px;
+  width: 33.33%;
+  margin-inline: 20px;
+  justify-content: center;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.nametag {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: 400;
+  font-size: 60px;
+  margin-top: 8px;
+}
+
+.eta {
+  margin: auto;
+  width: 270px;
+  border: 0;
+  display: block;
+  padding: 0;
+}
+
+.timetable {
+  background-color: #fff;
+  border: 16px solid #fff;
+}
+
+.title {
+  background-color: #fff;
+  margin: 0;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  color: #c8d7ff;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.long {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.movetopage {
+  width: 100%;
+  display: block;
+  padding-top: 20px;
+  text-align: center;
+}
+
+button {
+  font-size: 20px;
+  margin-bottom: 20px;
+  background-color: #6464cd;
+  color: #fff;
+  width: 30%;
+  border-radius: 10px;
+  border: 1px solid #6464cd;
+}
+
+/* goals.tsx*/
+.goalofsemester {
+  font-size: 50px;
+  font-weight: 300;
+  background-color: #b4b4ff;
+  margin-bottom: 30px;
+}
+
+.goal {
+  color: #fff;
+  text-align: center;
+  font-size: 22px;
+}
+
+.goalWrap {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.gpa {
+  width: 400px;
+  margin-top: 10px;
+}
+
+.nodejs {
+  margin-top: 20px;
+  width: 300px;
+}
+
+.weight {
+  margin-top: 20px;
+  width: 300px;
+}
+
+.myfavorite {
+  font-size: 50px;
+  font-weight: 300;
+  background-color: #b4b4ff;
+  margin-bottom: 30px;
+}
+.favorite {
+  color: #fff;
+  text-align: center;
+  font-size: 22px;
+}
+.favoritesWrap {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+.football{
+  width:400px;
+}
+.workout{
+  width:400px;
+}
+
+.billiard{
+  width:400px;
+}
+
+
