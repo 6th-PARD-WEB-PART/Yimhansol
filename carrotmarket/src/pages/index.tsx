@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   return (
-    <div className="bg-[#F9FAFB] w-[1440px] h-[1024px]">
+    <div className="bg-[#F9FAFB] w-[100%] h-[1024px] justify-center items-center">
       <header className=" bg-white w-full flex py-2.5 px-0 flex-col justify-center items-center border-b border-[#E5E7EB]">
         <div className="flex w-[1200px] h-16 justify-between items-center">
           <div className="flex w-[560.844px] h-[40px] items-center shrink-0">
@@ -77,7 +77,7 @@ export default function Home() {
         </div>
       </header>
       {/* Frame 2 */}
-      <main className="flex w-[1440px] h-[247px] p-2.5 flex-col justify-center items-center gap-2.5 shrink-0 bg-white">
+      <main className="flex mx-auto w-full h-[247px] p-2.5 flex-col justify-center items-center gap-2.5 shrink-0 bg-white">
         <div className="flex w-[896px] h-[258px] max-w-[896px] py-12 px-8 flex-col items-start shrink-0">
           {/* H1-46 */}
           <h1 className="flex w-[832px] h-9 justify-center items-center shrink-0">
@@ -196,7 +196,7 @@ export default function Home() {
         </div>
       </main>
       {/* DIV-91 */}
-      <footer className="flex w-[1152px] h-[328px] max-w-[1152px] p-8 flex-col items-center shrink-0">
+      <footer className="mx-auto flex w-[1152px] h-[328px] max-w-[1152px] p-8 flex-col items-center shrink-0">
         {/* margin-wrap */}
         <div className="flex pb-12 items-start w-full justify-center">
           {/* DIV-92 */}
