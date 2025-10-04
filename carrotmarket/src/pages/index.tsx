@@ -196,7 +196,7 @@ export default function Home() {
         </div>
       </main>
       {/* DIV-91 */}
-      <footer className="flex w-[1152px] h-[328px] max-w-[1152px] p-8 flex-col items-center shrink-0">
+      <footer className="mx-auto flex w-[1152px] h-[328px] max-w-[1152px] p-8 flex-col items-center shrink-0">
         {/* margin-wrap */}
         <div className="flex pb-12 items-start w-full justify-center">
           {/* DIV-92 */}
