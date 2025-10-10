@@ -1,18 +1,12 @@
+import { useState } from "react";
 import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import DropDown from "@/components/DropDown";
+import LocationSection from "@/components/LocationSection";
+import SearchBar from "@/components/SearchBar";
 
 export default function Home() {
+  const [selected, setSelected] = useState("송도동");
   return (
     <div className="bg-[#F9FAFB] w-[100%] h-[1024px] justify-center items-center">
       <header className=" bg-white w-full flex py-2.5 px-0 flex-col justify-center items-center border-b border-[#E5E7EB]">
@@ -26,9 +20,12 @@ export default function Home() {
             </div>
             <div className="flex items-start pl-8">
               <div className="flex w-[467.922px] h-6 items-start">
-                <div className="flex w-[58.891px] h-6 items-center shrink-0 text-[#374151] font-roboto text-base not-italic font-medium leading-6 ">
+                <Link
+                  href="/main"
+                  className="flex w-[58.891px] h-6 items-center shrink-0 text-[#374151] font-roboto text-base not-italic font-medium leading-6 "
+                >
                   중고거래
-                </div>
+                </Link>
                 <div className="flex pl-6 items-start text-[#374151] font-roboto text-base not-italic font-medium leading-6">
                   <div className="flex items-center">부동산</div>
                   <div className="flex pl-6 items-center">중고차</div>
@@ -80,68 +77,16 @@ export default function Home() {
       <main className="flex mx-auto w-full h-[247px] p-2.5 flex-col justify-center items-center gap-2.5 shrink-0 bg-white">
         <div className="flex w-[896px] h-[258px] max-w-[896px] py-12 px-8 flex-col items-start shrink-0">
           {/* H1-46 */}
-          <h1 className="flex w-[832px] h-9 justify-center items-center shrink-0">
-            <div className="flex pr-2 items-start">
-              <img src="/icon-47.svg" className="w-[31.266px] h-[31px]"></img>
-            </div>
-            <div className="text-gray-800 text-center text-[30px] not-italic font-bold leading-9">
-              송도동에서 알바 찾고 계신가요?
-            </div>
-          </h1>
+          <LocationSection selected={selected} />
 
           {/* margin-wrap */}
           <div className="flex pt-8 pr-20 pl-20 items-start">
             {/* 상단 검색바 */}
             <div className="flex w-[672px] max-w-[672px] justify-center items-center">
               {/* 위치지정 div */}
-              <div className="flex pr-4 items-start">
-                <div className=" hover:bg-black flex w-[119.984px] h-12 px-4 py-3 items-center rounded-[9999px] bg-[#1F2937]">
-                  <div className="flex pr-2 items-start">
-                    <img
-                      src="/icon-53.svg"
-                      className="flex w-[16.672px] h-6 justify-center items-center"
-                    ></img>
-                  </div>
-                  <div className="flex w-[38.641px] h-5 justify-center items-center shrink-0">
-                    <div className="text-white text-center text-sm not-italic font-normal leading-5">
-                      송도동
-                    </div>
-                  </div>
-                  <div className="flex pl-2 items-start">
-                    <div className="flex w-[16.672px] h-6 justify-center items-center">
-                      <img
-                        src="/icon-58.svg"
-                        className="w-[16.656px] h-4 absolute"
-                      ></img>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <DropDown selected={selected} onSelect={setSelected} />
               {/* 검색창 */}
-              <div className="flex w-[536.016px] h-[50px] flex-col items-start shrink-0">
-                {/* inline-center-wrap */}
-                <div className="flex justify-center items-start self-stretch">
-                  {/* input */}
-                  <div className="flex w-[536.016px] h-[50px] px-[17px] py-[13px] items-center rounded-lg border border-[#E5E7EB] ">
-                    <div className="w-[502.016px] text-gray-400 text-base not-italic font-medium leading-6 left-[17px] top-[13px] ">
-                      물건이름을 입력해주세요
-                    </div>
-                    {/* Button */}
-                    <Link
-                      href="/main" // 이동할 페이지 (예: /about, /contact 등)
-                      className="hover:bg-amber-500 flex w-[32.672px] h-[41px] p-2 justify-center items-start bg-[#F97316] rounded-lg right-2 top-[4.5px] mr-0"
-                    >
-                      <div className="flex pt-1 items-start">
-                        <img
-                          src="/icon-62.svg"
-                          alt="icon"
-                          className="w-[16.672px] h-4"
-                        />
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              <SearchBar selected={selected} />
             </div>
           </div>
           {/* margin-wrap */}

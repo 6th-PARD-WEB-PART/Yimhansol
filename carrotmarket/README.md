@@ -10,6 +10,9 @@ Tailwind Css를 적용한 Clone-Coding~
 #### 메인페이지
 <img src = "public/image.png">
 
+#### 모달 페이지 
+<img src="public/screenshot1111.png">
+
 ## 도전과제
 
 랜딩페이지의 돋보기 버튼을 누르면 메인페이지로, 메인페이지의 돋보기 버튼을 누르면 랜딩페이지로 이동 가능

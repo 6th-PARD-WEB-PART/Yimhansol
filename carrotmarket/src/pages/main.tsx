@@ -1,6 +1,73 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import ProductCard from "@/components/ProductCard";
+import ProductModal from "@/components/modal/ProductModal";
+import type { Product } from "@/components/types/product";
+
 export default function Main() {
+  // 상품 카드 배열
+  const products: Product[] = [
+    {
+      name: "아이폰 14 프로 128GB 퍼플 깨끗한 상태",
+      price: 850000,
+      location: "송도동",
+      timeago: "몇초 전",
+      images: undefined
+    },
+    {
+      name: "아이폰 14 프로 128GB 퍼플 깨끗한 상태",
+      price: 850000,
+      location: "송도동",
+      timeago: "몇초 전",
+      images: undefined
+    },
+    {
+      name: "아이폰 14 프로 128GB 퍼플 깨끗한 상태",
+      price: 850000,
+      location: "송도동",
+      timeago: "몇초 전",
+      images: undefined
+    },
+    {
+      name: "길벗고 들일 소맥기도 4마리 360도 어울이브라미",
+      price: 20000,
+      location: "송도동",
+      timeago: "몇초 전",
+      images: undefined
+    },
+    {
+      name: "아이폰 14 프로 128GB 퍼플 깨끗한 상태",
+      price: 850000,
+      location: "송도동",
+      timeago: "몇초 전",
+      images: undefined
+    },
+    {
+      name: "아이폰 14 프로 128GB 퍼플 깨끗한 상태",
+      price: 850000,
+      location: "송도동",
+      timeago: "몇초 전",
+      images: undefined
+    },
+    {
+      name: "아이폰 14 프로 128GB 퍼플 깨끗한 상태",
+      price: 850000,
+      location: "송도동",
+      timeago: "몇초 전",
+      images: undefined
+    },
+  ];
+  // 모달 상태 관리
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<Product | null>(null);
+
+  // 모달 핸들러(자세히 보기)
+  const handleDetail = (p: Product) => {
+    setActive(p);
+    setOpen(true);
+  };
+
   return (
     // DESKTOP
     <div className="flex w-[1440px] flex-col justify-center items-start bg-[#F9FAFB]">
@@ -8,12 +75,12 @@ export default function Main() {
       <header className=" bg-white w-full flex py-2.5 px-0 flex-col justify-center items-center border-b border-[#E5E7EB]">
         <div className="flex w-[1200px] h-16 justify-between items-center">
           <div className="flex w-[560.844px] h-[40px] items-center shrink-0">
-            <div className="flex w-[61px] h-10 items-center shrink-0">
+            <Link href="/" className="flex w-[61px] h-10 items-center shrink-0">
               <img
                 src="/carrotimage.png"
                 className="w-[60.922px] h-10 max-w-[60.922px] shrink-0"
               ></img>
-            </div>
+            </Link>
             <div className="flex items-start pl-8">
               <div className="flex w-[467.922px] h-6 items-start">
                 <div className="flex w-[58.891px] h-6 items-center shrink-0 text-[#374151] font-roboto text-base not-italic font-medium leading-6 ">
@@ -81,14 +148,11 @@ export default function Main() {
                   물건이름을 입력해주세요
                 </div>
                 {/* BUTTON-61 */}
-                <Link
-                  href="/"
-                  className="flex w-[32.672px] h-[41px] p-2 justify-center items-start rounded-lg bg-orange-500"
-                >
+                <button className="flex w-[32.672px] h-[41px] p-2 justify-center items-start rounded-lg bg-orange-500">
                   <div className="flex pt-1 items-start">
                     <img src="/icon-62.svg" className="w-[16.672px] h-4"></img>
                   </div>
-                </Link>
+                </button>
               </div>
             </div>
             {/* margin-wrap */}
@@ -391,218 +455,17 @@ export default function Main() {
 
           {/* Frame 10 */}
           <div className="flex h-[696px] justify-center items-start content-start gap-[10px] shrink-0 self-stretch flex-wrap">
-            {/* Product1 */}
-            <div className="flex w-[190px] h-[331px] flex-col items-start gap-2 rounded-lg bg-white">
-              {/* Rectangle */}
-              <div className="h-[171px] flex-shrink-0 self-stretch rounded-t-lg bg-orange-100"></div>
-
-              {/* Frame */}
-              <div className="flex px-[10px] flex-col justify-center items-start self-stretch">
-                <div className="flex w-[165px] h-12 flex-col justify-center overflow-hidden text-[#111827] font-roboto text-base not-italic font-medium leading-6 whitespace-normal break-words">
-                  아이폰 14 프로 128GB 퍼플 깨끗한 상태
-                </div>
-
-                <div className="text-[#111827] font-roboto text-xl not-italic font-bold leading-7">
-                  850,000원
-                </div>
-                <div className="text-[#6B7280] font-roboto text-sm not-italic font-normal leading-5">
-                  송도동 • 몇초 전
-                </div>
-              </div>
-
-              {/* Frame */}
-              <div className="flex p-[10px] justify-end items-center gap-[10px] self-stretch">
-                <img src="icon-187.svg" className="w-[18.766px] h-4.5"></img>
-                <div className="flex w-[57.125px] h-7 px-3 py-1.5 items-center rounded-lg bg-[#F97316]">
-                  <div className="text-white font-roboto text-xs not-italic font-medium leading-4">
-                    자세히
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Product2 */}
-            <div className="flex w-[190px] h-[331px] flex-col items-start gap-2 rounded-lg bg-white">
-              {/* Rectangle */}
-              <div className="h-[171px] flex-shrink-0 self-stretch rounded-t-lg bg-orange-100"></div>
-
-              {/* Frame */}
-              <div className="flex px-[10px] flex-col justify-center items-start self-stretch">
-                <div className="flex w-[165px] h-12 flex-col justify-center overflow-hidden text-[#111827] font-roboto text-base not-italic font-medium leading-6 whitespace-normal break-words">
-                  아이폰 14 프로 128GB 퍼플 깨끗한 상태
-                </div>
-
-                <div className="text-[#111827] font-roboto text-xl not-italic font-bold leading-7">
-                  850,000원
-                </div>
-                <div className="text-[#6B7280] font-roboto text-sm not-italic font-normal leading-5">
-                  송도동 • 몇초 전
-                </div>
-              </div>
-
-              {/* Frame */}
-              <div className="flex p-[10px] justify-end items-center gap-[10px] self-stretch">
-                <img src="icon-187.svg" className="w-[18.766px] h-4.5"></img>
-                <div className="flex w-[57.125px] h-7 px-3 py-1.5 items-center rounded-lg bg-[#F97316]">
-                  <div className="text-white font-roboto text-xs not-italic font-medium leading-4">
-                    자세히
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Product3 */}
-            <div className="flex w-[190px] h-[331px] flex-col items-start gap-2 rounded-lg bg-white">
-              {/* Rectangle */}
-              <div className="h-[171px] flex-shrink-0 self-stretch rounded-t-lg bg-orange-100"></div>
-
-              {/* Frame */}
-              <div className="flex px-[10px] flex-col justify-center items-start self-stretch">
-                <div className="flex w-[165px] h-12 flex-col justify-center overflow-hidden text-[#111827] font-roboto text-base not-italic font-medium leading-6 whitespace-normal break-words">
-                  아이폰 14 프로 128GB 퍼플 깨끗한 상태
-                </div>
-
-                <div className="text-[#111827] font-roboto text-xl not-italic font-bold leading-7">
-                  850,000원
-                </div>
-                <div className="text-[#6B7280] font-roboto text-sm not-italic font-normal leading-5">
-                  송도동 • 몇초 전
-                </div>
-              </div>
-
-              {/* Frame */}
-              <div className="flex p-[10px] justify-end items-center gap-[10px] self-stretch">
-                <img src="icon-187.svg" className="w-[18.766px] h-4.5"></img>
-                <div className="flex w-[57.125px] h-7 px-3 py-1.5 items-center rounded-lg bg-[#F97316]">
-                  <div className="text-white font-roboto text-xs not-italic font-medium leading-4">
-                    자세히
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Product4 */}
-            <div className="flex w-[190px] h-[331px] flex-col items-start gap-2 rounded-lg bg-white">
-              {/* Rectangle */}
-              <div className="h-[171px] flex-shrink-0 self-stretch rounded-t-lg bg-orange-100"></div>
-
-              {/* Frame */}
-              <div className="flex px-[10px] flex-col justify-center items-start self-stretch">
-                <div className="flex w-[165px] h-12 flex-col justify-center overflow-hidden text-[#111827] font-roboto text-base not-italic font-medium leading-6 whitespace-normal break-words">
-                  아이폰 14 프로 128GB 퍼플 깨끗한 상태
-                </div>
-
-                <div className="text-[#111827] font-roboto text-xl not-italic font-bold leading-7">
-                  850,000원
-                </div>
-                <div className="text-[#6B7280] font-roboto text-sm not-italic font-normal leading-5">
-                  송도동 • 몇초 전
-                </div>
-              </div>
-
-              {/* Frame */}
-              <div className="flex p-[10px] justify-end items-center gap-[10px] self-stretch">
-                <img src="icon-187.svg" className="w-[18.766px] h-4.5"></img>
-                <div className="flex w-[57.125px] h-7 px-3 py-1.5 items-center rounded-lg bg-[#F97316]">
-                  <div className="text-white font-roboto text-xs not-italic font-medium leading-4">
-                    자세히
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Product5 */}
-            <div className="flex w-[190px] h-[331px] flex-col items-start gap-2 rounded-lg bg-white">
-              {/* Rectangle */}
-              <div className="h-[171px] flex-shrink-0 self-stretch rounded-t-lg bg-orange-100"></div>
-
-              {/* Frame */}
-              <div className="flex px-[10px] flex-col justify-center items-start self-stretch">
-                <div className="flex w-[165px] h-12 flex-col justify-center overflow-hidden text-[#111827] font-roboto text-base not-italic font-medium leading-6 whitespace-normal break-words">
-                  아이폰 14 프로 128GB 퍼플 깨끗한 상태
-                </div>
-
-                <div className="text-[#111827] font-roboto text-xl not-italic font-bold leading-7">
-                  850,000원
-                </div>
-                <div className="text-[#6B7280] font-roboto text-sm not-italic font-normal leading-5">
-                  송도동 • 몇초 전
-                </div>
-              </div>
-
-              {/* Frame */}
-              <div className="flex p-[10px] justify-end items-center gap-[10px] self-stretch">
-                <img src="icon-187.svg" className="w-[18.766px] h-4.5"></img>
-                <div className="flex w-[57.125px] h-7 px-3 py-1.5 items-center rounded-lg bg-[#F97316]">
-                  <div className="text-white font-roboto text-xs not-italic font-medium leading-4">
-                    자세히
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Product6 */}
-            <div className="flex w-[190px] h-[331px] flex-col items-start gap-2 rounded-lg bg-white">
-              {/* Rectangle */}
-              <div className="h-[171px] flex-shrink-0 self-stretch rounded-t-lg bg-orange-100"></div>
-
-              {/* Frame */}
-              <div className="flex px-[10px] flex-col justify-center items-start self-stretch">
-                <div className="flex w-[165px] h-12 flex-col justify-center overflow-hidden text-[#111827] font-roboto text-base not-italic font-medium leading-6 whitespace-normal break-words">
-                  아이폰 14 프로 128GB 퍼플 깨끗한 상태
-                </div>
-
-                <div className="text-[#111827] font-roboto text-xl not-italic font-bold leading-7">
-                  850,000원
-                </div>
-                <div className="text-[#6B7280] font-roboto text-sm not-italic font-normal leading-5">
-                  송도동 • 몇초 전
-                </div>
-              </div>
-
-              {/* Frame */}
-              <div className="flex p-[10px] justify-end items-center gap-[10px] self-stretch">
-                <img src="icon-187.svg" className="w-[18.766px] h-4.5"></img>
-                <div className="flex w-[57.125px] h-7 px-3 py-1.5 items-center rounded-lg bg-[#F97316]">
-                  <div className="text-white font-roboto text-xs not-italic font-medium leading-4">
-                    자세히
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Product7 */}
-            <div className="flex w-[190px] h-[331px] flex-col items-start gap-2 rounded-lg bg-white">
-              {/* Rectangle */}
-              <div className="h-[171px] flex-shrink-0 self-stretch rounded-t-lg bg-orange-100"></div>
-
-              {/* Frame */}
-              <div className="flex px-[10px] flex-col justify-center items-start self-stretch">
-                <div className="flex w-[165px] h-12 flex-col justify-center overflow-hidden text-[#111827] font-roboto text-base not-italic font-medium leading-6 whitespace-normal break-words">
-                  아이폰 14 프로 128GB 퍼플 깨끗한 상태
-                </div>
-
-                <div className="text-[#111827] font-roboto text-xl not-italic font-bold leading-7">
-                  850,000원
-                </div>
-                <div className="text-[#6B7280] font-roboto text-sm not-italic font-normal leading-5">
-                  송도동 • 몇초 전
-                </div>
-              </div>
-
-              {/* Frame */}
-              <div className="flex p-[10px] justify-end items-center gap-[10px] self-stretch">
-                <img src="icon-187.svg" className="w-[18.766px] h-4.5"></img>
-                <div className="flex w-[57.125px] h-7 px-3 py-1.5 items-center rounded-lg bg-[#F97316]">
-                  <div className="text-white font-roboto text-xs not-italic font-medium leading-4">
-                    자세히
-                  </div>
-                </div>
-              </div>
-            </div>
+            {products.map((p) => (
+              <ProductCard key={p.name} product={p} onDetail={handleDetail} />
+            ))}
           </div>
         </div>
       </main>
+      <ProductModal
+        open={open}
+        product={active}
+        onClose={() => setOpen(false)}
+      />
     </div>
   );
 }
