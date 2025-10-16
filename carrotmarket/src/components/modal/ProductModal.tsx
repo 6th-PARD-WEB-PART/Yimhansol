@@ -1,33 +1,27 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Product } from "../types/product";
 import ModalChat from "./ModalChat";
 import ModalLike from "./ModalLike";
+import { ModalProps } from "../types/product";
 
-// 모달 컴포넌트
-type Props = {
-  open: boolean;
-  product: Product | null;
-  onClose: () => void;
-};
-
-export default function ProductModal({ open, product, onClose }: Props) {
+export default function ProductModal({ open, product, onClose }: ModalProps) {
   // 관심 state
-  const [likes, setLikes] = React.useState(0);
+  const [likes, setLikes] = useState<number>(0);
 
   const handleLikeChange = (newLikes: number) => {
     setLikes(newLikes);
   };
   // 채팅 수 state
-  const [chatCount, setChatCount] = React.useState(0);
+  const [chatCount, setChatCount] = useState(0);
 
   const handleChat = () => {
     setChatCount(chatCount + 1);
   };
 
-  // 조회수 state 
-  const [views, setViews] = React.useState(0);
-  React.useEffect(() => {
+  // 조회수 state
+  const [views, setViews] = useState<number>(0);
+  useEffect(() => {
     if (open) setViews((prev) => prev + 1);
   }, [open]);
 

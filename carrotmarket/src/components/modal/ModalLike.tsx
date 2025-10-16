@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
+import { ModalLikeProps } from "../types/product";
 
-type Props = {
-  onLikeChange?: (count: number) => void;
-};
 
-export default function ModalLike({ onLikeChange }: Props) {
+export default function ModalLike({ onLikeChange }: ModalLikeProps) {
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState(0);
   const [animating, setAnimating] = useState(false);

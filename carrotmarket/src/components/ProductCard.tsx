@@ -2,13 +2,10 @@
 import React from "react";
 import type { Product } from "./types/product";
 import LikeButton from "./LikeButton";
+import { ProductCardProps } from "./types/product";
 
-type Props = {
-  product: Product;
-  onDetail?: (p: Product) => void;
-};
 
-export default function ProductCard({ product, onDetail }: Props) {
+export default function ProductCard({ product, onDetail }: ProductCardProps) {
   return (
     // product card
     <div className="flex w-[190px] h-[331px] flex-col items-start gap-2 rounded-lg bg-white">

@@ -1,21 +1,20 @@
 // index.tsx 의 검색창 컴포넌트
 
+import { useSearchStore } from "../store/searchstore";
+import { SearchBarProps } from "./types/product";
 import { useState } from "react";
 
-type SearchBarProps = {
-  selected: string;
-  onSearch?: (q: string) => void;
-};
-
 export default function SearchBar({ selected, onSearch }: SearchBarProps) {
-  const [q, setQ] = useState("");
+  const [input, setInput] = useState("");
+  const { q, setQ } = useSearchStore();
 
   const runSearch = () => {
+    setQ(input);
     // 검색어 출력
     const msg = `${selected}에서 ${q || "null"} 을(를) 찾고 있어요!`;
     console.log(msg);
     // 부모에게 q값 전달
-    onSearch?.(q);
+    onSearch?.(input);
   };
 
   return (
@@ -26,8 +25,8 @@ export default function SearchBar({ selected, onSearch }: SearchBarProps) {
         {/* input */}
         <div className="flex w-[536.016px] h-[50px] px-[17px] py-[13px] items-center rounded-lg border border-[#E5E7EB] ">
           <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             // Enter키로도 검색
             onKeyDown={(e) => e.key === "Enter" && runSearch()}
             className="w-[502.016px] text-gray-400 text-base not-italic font-medium leading-6 left-[17px] top-[13px] "

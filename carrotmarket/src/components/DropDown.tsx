@@ -1,11 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
-//component props의 타입 지정
-type DropDownProps = {
-  selected: string;
-  onSelect: (value: string) => void;
-  options?: string[];
-};
+import { DropDownProps } from "./types/product";
 
 export default function DropDown({
   selected,
