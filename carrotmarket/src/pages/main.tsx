@@ -80,16 +80,13 @@ export default function Main() {
   return (
     // DESKTOP
 
-    <div className="flex w-[1440px] flex-col justify-center items-start bg-[#F9FAFB] max-md:w-full mx-auto">
+    <div className="min-h-screen bg-[#F9FAFB]">
       {/* HEADER-4 */}
-      <header className=" bg-white w-full flex py-2.5 px-0 flex-col justify-center items-center border-b border-[#E5E7EB]">
-        <div className="flex w-[1200px] h-16 justify-between items-center max-md:w-full max-md:px-4">
-          <div className="flex w-[560.844px] h-[40px] items-center shrink-0">
-            <Link href="/" className="flex w-[61px] h-10 items-center shrink-0">
-              <img
-                src="/carrotimage.png"
-                className="w-[60.922px] h-10 max-w-[60.922px] shrink-0"
-              ></img>
+      <header className="w-full border-b border-[#E5E7EB] bg-white">
+        <div className="mx-auto w-full max-w-screen-xl h-16 px-4 md:px-6 lg:px-8 flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <Link href="/" className="shrink-0">
+              <img src="/carrotimage.png" className="h-10 w-auto"></img>
             </Link>
             <div className="flex items-start pl-8 max-md:hidden">
               <div className="flex w-[467.922px] h-6 items-start max-md:hidden">
@@ -148,17 +145,17 @@ export default function Main() {
         </div>
       </header>
       {/* Frame2 */}
-      <div className="flex w-[1440px] p-[10px] flex-col justify-center items-center gap-[10px] border border-[#E5E7EB] bg-white max-md:w-full max-md:px-4 max-md:py-2">
+      <div className="flex w-full max-w-screen-xl mx-auto p-4 flex-col justify-center items-center gap-2 border border-[#E5E7EB] bg-white">
         {/* Frame 5 */}
         <div className="flex flex-col items-start gap-[10px]">
           {/* Frame 4 */}
           <div className="flex justify-center items-center gap-[10px]">
             {/* INPUT */}
-            <div className="flex  w-[1000px] h-[55px] p-[10px] justify-center items-center gap-[10px] rounded-lg border border-[#E5E7EB] bg-white max-md:w-full">
+            <div className="flex w-full md:w-[1000px] h-[55px] p-2 justify-center items-center gap-2 rounded-lg border border-[#E5E7EB] bg-white">
               {/* Frame3 */}
               <div className="flex justify-between items-center flex-[1_0_0]">
                 {/* input */}
-                <div className="w-[502.016px] text-gray-400 text-base not-italic font-medium leading-6">
+                <div className="flex-1 text-gray-400 text-base font-medium">
                   물건이름을 입력해주세요
                 </div>
                 {/* BUTTON-61 */}
@@ -254,7 +251,7 @@ export default function Main() {
       </div>
 
       {/* Frame6 */}
-      <main className="flex h-[788px] py-[25px] px-[100px] justify-center items-start gap-[25px] max-md:w-full max-md:h-auto max-md:py-4 max-md:px-4 max-md:gap-4">
+      <main className="flex w-full max-w-screen-xl mx-auto py-6 px-4 md:px-6 lg:px-8 justify-center items-start gap-6">
         {/* Frame 8 */}
         <div className="flex w-[260px] p-4 flex-col items-start gap-[10px] rounded-lg bg-white max-md:hidden">
           {/* DIV-89 */}
@@ -456,7 +453,7 @@ export default function Main() {
         </div>
 
         {/* Frame 7 */}
-        <div className="flex w-[795px] h-[739px] flex-col items-start gap-[15px] max-md:w-full max-md:h-auto">
+        <div className="flex w-full flex-col items-start gap-4">
           {/* DIV-151 */}
           <div className="flex h-7 flex-col items-start shrink-0">
             {/* H1-152 */}
@@ -469,7 +466,7 @@ export default function Main() {
           </div>
 
           {/* Frame 10 */}
-          <div className="flex h-[696px] justify-center items-start content-start gap-[10px] shrink-0 self-stretch flex-wrap max-md:h-auto max-md:gap-y-4 max-md:gap-x-0 max-md:justify-between">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
             {products.map((p) => (
               <div key={p.name} className="max-md:flex-[0_0_48%] ">
                 <div className="w-full">
