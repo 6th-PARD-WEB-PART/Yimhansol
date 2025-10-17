@@ -5,6 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import ProductModal from "@/components/modal/ProductModal";
 import type { Product } from "@/components/types/product";
 import { useSearchStore } from "@/store/searchstore";
+import MobileFilterModal from "@/components/modal/MobileFilterModal";
 
 export default function Main() {
   // 상품 카드 배열
@@ -74,6 +75,8 @@ export default function Main() {
     setActive(exampleProduct);
     setOpen(true);
   };
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [menuOpen, setOpenMenu] = useState(false);
 
   const searchproduct = useSearchStore((s) => s.q);
 
@@ -104,7 +107,7 @@ export default function Main() {
               </div>
             </div>
           </div>
-          <div className="flex w-[180.156px] h-10 items-center shrink-0">
+          <div className="flex items-center shrink-0">
             <div className="flex w-[87.984px] h-6 items-center shrink-0">
               <div className="flex w-[16.672px] h-6 items-center shrink-0">
                 <img
@@ -125,11 +128,18 @@ export default function Main() {
                 <div className="flex w-[16.672px] h-6 items-center">
                   <img
                     src="/icon-40.svg"
-                    className="w-[16.656px] h-4 absolute top-1 mt-8"
+                    className="w-[16.656px] h-4 absolute top-1 mt-5"
                   ></img>
                 </div>
               </div>
             </div>
+            {/* hamberger for mobile */}
+            <button
+              className="md:hidden flex ml-2"
+              onClick={() => setOpenMenu(true)}
+            >
+              <img src="ci_hamburger-md.svg" />
+            </button>
             <div className="flex pl-4 items-start max-md:hidden">
               <button
                 type="button"
@@ -145,11 +155,11 @@ export default function Main() {
         </div>
       </header>
       {/* Frame2 */}
-      <div className="flex w-full max-w-screen-xl mx-auto p-4 flex-col justify-center items-center gap-2 border border-[#E5E7EB] bg-white">
+      <div className="flex w-full max-w-screen-xl mx-auto p-4  flex-col justify-center items-center gap-2 border border-b-0 border-[#E5E7EB] bg-white ">
         {/* Frame 5 */}
         <div className="flex flex-col items-start gap-[10px]">
           {/* Frame 4 */}
-          <div className="flex justify-center items-center gap-[10px]">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-[10px] w-full">
             {/* INPUT */}
             <div className="flex w-full md:w-[1000px] h-[55px] p-2 justify-center items-center gap-2 rounded-lg border border-[#E5E7EB] bg-white">
               {/* Frame3 */}
@@ -161,92 +171,69 @@ export default function Main() {
                 {/* BUTTON-61 */}
                 <button className="flex w-[32.672px] h-[41px] p-2 justify-center items-start rounded-lg bg-orange-500">
                   <div className="flex pt-1 items-start">
-                    <img src="/icon-62.svg" className="w-[16.672px] h-4"></img>
+                    <img src="/icon-62.svg" className="w-[16.672px] h-4" />
                   </div>
                 </button>
               </div>
             </div>
-            {/* 검색바옆 위치정보*/}
+
+            {/* 검색바 옆 위치정보 (Desktop) */}
             <div className="hidden md:flex pl-4 items-start">
-              {/* DIV-51 */}
               <div className="flex w-[93.516px] h-6 items-center">
-                {/* I-52 */}
                 <div className="flex w-[16.672px] h-6 items-center shrink-0">
-                  <img src="/icon-47.svg" className="w-[16.656px] h-4 "></img>
+                  <img src="/icon-47.svg" className="w-[16.656px] h-4" />
                 </div>
-                {/* margin-wrap */}
                 <div className="flex pl-2 items-start">
                   <div className="flex w-[44.172px] h-6 items-center">
                     <div className="text-gray-700 text-base not-italic font-normal leading-6">
                       송도동
                     </div>
                   </div>
+                  <div className="flex pl-2 items-start">
+                    <div className="flex w-[16.672px] h-6 items-center">
+                      <img
+                        src="/icon-40.svg"
+                        className="w-[16.656px] h-4 top-1"
+                      />
+                    </div>
+                  </div>
                 </div>
-                {/* margin-wrap */}
-                <div className="flex pl-2 items-start">
-                  {/* I-57 */}
-                  <div className="flex w-[16.672px] h-6 items-center">
-                    <img
-                      src="/icon-40.svg"
-                      className=" w-[16.656px] h-4 top-1"
-                    ></img>
+
+                {/* 검색바 아래 위치정보 (Mobile 전용) */}
+                <div className="flex md:hidden justify-center items-center gap-2 pt-2">
+                  <div className="flex items-center text-gray-600 text-sm">
+                    <img src="/icon-47.svg" className="w-4 h-4 mr-1" />
+                    송도동
+                    <img src="/icon-40.svg" className="w-4 h-4 ml-1" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
           {/* DIV-59 */}
-          <div className="flex h-8 items-center gap-2 flex-wrap max-md:overflow-x-auto max-md:flex-nowrap max-md:whitespace-nowrap no-scrollbar ">
-            {/* BUTTON */}
-            <div className="flex w-[71.266px] h-8 px-3 py-[6px] justify-center items-center rounded-full bg-gray-100">
-              <div className="text-gray-700 text-center text-sm not-italic font-normal leading-5">
-                #에어팟
-              </div>
-            </div>
-            {/* BUTTON */}
-            <div className="flex w-[71.266px] h-8 px-3 py-[6px] justify-center items-center rounded-full bg-gray-100">
-              <div className="text-gray-700 text-center text-sm not-italic font-normal leading-5">
-                #아이폰
-              </div>
-            </div>
-            {/* BUTTON */}
-            <div className="flex w-[71.266px] h-8 px-3 py-[6px] justify-center items-center rounded-full bg-gray-100">
-              <div className="text-gray-700 text-center text-sm not-italic font-normal leading-5">
-                #삼성
-              </div>
-            </div>
-            {/* BUTTON */}
-            <div className="flex w-[71.266px] h-8 px-3 py-[6px] justify-center items-center rounded-full bg-gray-100">
-              <div className="text-gray-700 text-center text-sm not-italic font-normal leading-5">
-                #냉장고
-              </div>
-            </div>
-            {/* BUTTON */}
-            <div className="flex w-[71.266px] h-8 px-3 py-[6px] justify-center items-center rounded-full bg-gray-100">
-              <div className="text-gray-700 text-center text-sm not-italic font-normal leading-5">
-                #자전거
-              </div>
-            </div>
-            {/* BUTTON */}
-            <div className="flex w-[71.266px] h-8 px-3 py-[6px] justify-center items-center rounded-full bg-gray-100">
-              <div className="text-gray-700 text-center text-sm not-italic font-normal leading-5">
-                #노트북
-              </div>
-            </div>
-            {/* BUTTON */}
-            <div className="flex w-[71.266px] h-8 px-3 py-[6px] justify-center items-center rounded-full bg-gray-100">
-              <div className="text-gray-700 text-center text-sm not-italic font-normal leading-5">
-                #의자
-              </div>
-            </div>
-            {/* BUTTON */}
-            <div className="flex w-[71.266px] h-8 px-3 py-[6px] justify-center items-center rounded-full bg-gray-100">
-              <div className="text-gray-700 text-center text-sm not-italic font-normal leading-5">
-                #책상
-              </div>
-            </div>
-          </div>
+        </div>
+      </div>
+      <div className="flex w-full max-w-screen-xl mx-auto p-4 gap-2 border border-t-0 border-[#E5E7EB] bg-white">
+        {/* Frame 5 */}
+
+        <div className="flex sm:ml-0 ml-15 -mt-6 gap-2 overflow-x-auto whitespace-nowrap scrollbar-none">
+          {[
+            "#에어팟",
+            "#아이폰",
+            "#삼성",
+            "#냉장고",
+            "#자전거",
+            "#노트북",
+            "#의자",
+            "#책상",
+          ].map((tag) => (
+            <span
+              key={tag}
+              className="px-3 py-1.5 bg-gray-100 rounded-full text-sm text-gray-700 shrink-0"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
 
@@ -455,13 +442,29 @@ export default function Main() {
         {/* Frame 7 */}
         <div className="flex w-full flex-col items-start gap-4">
           {/* DIV-151 */}
-          <div className="flex h-7 flex-col items-start shrink-0">
+          <div className="flex w-full h-7 flex-col items-start shrink-0 ">
             {/* H1-152 */}
             <div className="flex h-7 items-center shrink-0">
               <div className="text-[#111827] font-roboto text-xl not-italic font-bold leading-7">
                 {/* 검색바에서 검색어 입력시 상품명 변경 검색어 null시 전체상품 */}
                 {searchproduct ? searchproduct : "전체상품"}
               </div>
+
+              {/* 모바일 필터버튼 */}
+
+              <button
+                onClick={() => setIsFilterOpen(true)}
+                className="w-18 bg-gray-400 rounded-[50px] inline-flex justify-center items-center"
+              >
+                <div className="justify-center text-white text-sm font-normal font-['Roboto'] leading-tight">
+                  필터
+                </div>
+                <div className="pl-2 flex">
+                  <div className="w-4 h-6 relative flex justify-start items-center">
+                    <img src="Icon-40 (1).svg" />
+                  </div>
+                </div>
+              </button>
             </div>
           </div>
 
@@ -481,6 +484,73 @@ export default function Main() {
         open={open}
         product={active}
         onClose={() => setOpen(false)}
+      />
+      {menuOpen && (
+        <div className="fixed inset-0 z-[100]">
+          {/* 어둡게: 배경 클릭하면 닫힘 */}
+          <button
+            aria-label="메뉴 닫기"
+            onClick={() => setOpenMenu(false)}
+            className="absolute inset-0 bg-black/40"
+          />
+
+          {/* 우측 패널 */}
+          <aside
+            role="dialog"
+            aria-modal="true"
+            className="absolute right-0 top-0 h-full w-72 bg-gray-50 shadow-[0_0_20px_rgba(0,0,0,0.25)] translate-x-0 transition-transform duration-300 overflow-y-auto"
+          >
+            {/* 상단 닫기 */}
+            <div className="flex justify-end p-4">
+              <button
+                onClick={() => setOpenMenu(false)}
+                aria-label="메뉴 닫기"
+                className="text-gray-700"
+              >
+                <span className="text-lg tracking-widest">|||</span>
+              </button>
+            </div>
+
+            {/* 메뉴 리스트 */}
+            <nav className="px-8">
+              <ul className="space-y-5 text-gray-700 text-[18px] leading-normal">
+                <li>
+                  <button className="hover:text-gray-900">중고거래</button>
+                </li>
+                <li>
+                  <button className="hover:text-gray-900">부동산</button>
+                </li>
+                <li>
+                  <button className="hover:text-gray-900">중고차</button>
+                </li>
+                <li>
+                  <button className="hover:text-gray-900">알바</button>
+                </li>
+                <li>
+                  <button className="hover:text-gray-900">동네업체</button>
+                </li>
+                <li>
+                  <button className="hover:text-gray-900">동네생활</button>
+                </li>
+                <li>
+                  <button className="hover:text-gray-900">모임</button>
+                </li>
+              </ul>
+
+              {/* 글쓰기 버튼 */}
+              <div className="mt-8 flex justify-center">
+                <button className="px-5 py-2 rounded-md bg-orange-500 text-white text-[15px]">
+                  글쓰기
+                </button>
+              </div>
+            </nav>
+            <div className="h-6" />
+          </aside>
+        </div>
+      )}
+      <MobileFilterModal
+        open={isFilterOpen}
+        onClose={() => setIsFilterOpen(false)}
       />
     </div>
   );
